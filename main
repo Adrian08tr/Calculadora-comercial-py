@@ -1,0 +1,55 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+def calcular():
+    try:
+        vendas = float(entry_vendas.get().replace(",", "."))
+        despesas = float(entry_despesas.get().replace(",", "."))
+        taxa = float(entry_taxa.get().replace(",", "."))
+
+        comissao = vendas * (taxa / 100)
+        saldo = vendas - despesas - comissao
+
+        lbl_resultado.config(
+            text=f"Comissão: R$ {comissao:.2f}\n"
+                 f"Saldo Final: R$ {saldo:.2f}"
+        )
+
+    except ValueError:
+        messagebox.showerror(
+            "Erro",
+            "Digite apenas números válidos."
+        )
+
+
+janela = tk.Tk()
+janela.title("Calculadora Comercial")
+janela.geometry("250x250")
+
+tk.Label(janela, text="Total de Vendas:").pack(pady=2)
+entry_vendas = tk.Entry(janela)
+entry_vendas.pack(pady=2)
+
+tk.Label(janela, text="Total de Despesas:").pack(pady=2)
+entry_despesas = tk.Entry(janela)
+entry_despesas.pack(pady=2)
+
+tk.Label(janela, text="Taxa de Comissão (%):").pack(pady=2)
+entry_taxa = tk.Entry(janela)
+entry_taxa.pack(pady=2)
+
+tk.Button(
+    janela,
+    text="Calcular",
+    command=calcular
+).pack(pady=10)
+
+lbl_resultado = tk.Label(
+    janela,
+    text="",
+    font=("Arial", 10, "bold")
+)
+lbl_resultado.pack(pady=5)
+
+janela.mainloop()
