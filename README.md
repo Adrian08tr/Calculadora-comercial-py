@@ -46,9 +46,12 @@ final a partir das vendas, despesas e comissão.
 ## Demonstração
 
 Abaixo, uma captura de tela da aplicação e do código-fonte.
+## Demonstração
 
 <div align="center">
-  <img src="calculadora.png" width="90%" alt="Calculadora Comercial desenvolvida em Python">
+  <img src="Captura%20de%20tela%202026-10-27%20175422.png"
+       width="90%"
+       alt="Calculadora Comercial em Python e Tkinter">
 </div>
 
 ## Como Executar
